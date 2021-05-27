@@ -53,6 +53,7 @@ koalaRouter.post('/', (req, res) => {
 koalaRouter.put('/:id', (req, res) => {
     let koalaId = req.params.id;//setting Koala id dynamically
     let transferReady = req.body.ready_to_transfer//sets variable to transferability of koala
+    console.log(req.body);
     console.log(transferReady);
     let queryString = '';
     
