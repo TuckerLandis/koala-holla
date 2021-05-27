@@ -10,6 +10,8 @@ $( document ).ready( function(){
 }); // end doc ready
 
 function setupClickListeners() {
+  $('#viewKoalas').on('click', '.deleteBtn', deleteKoalaHandler);
+
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
     // get user input and put in an object
@@ -26,6 +28,22 @@ function setupClickListeners() {
     saveKoala( koalaToSend );
   }); 
 }
+
+function deleteKoalaHandler() {
+  deleteKoala($(this).data("id"))
+}
+
+function deleteKoala(koalaId) {
+  $.ajax({
+    method: 'DELETE',
+    url: `/koalas/${koalaId}`
+  }).then(response => {
+    console.log(`deleted koala with id of ${koalaId}`);
+    getKoalas();
+  }).catch(err => {
+    alert('there was a problem deleting that koala, try again', err);
+  });
+}//end deleteKoala
 
 function getKoalas(){
   console.log( 'in getKoalas' );
