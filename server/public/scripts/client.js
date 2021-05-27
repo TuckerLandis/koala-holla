@@ -6,8 +6,30 @@ $( document ).ready( function(){
   setupClickListeners()
   // load existing koalas on page load
   getKoalas();
-
+  // Ready to Transfer click listener
+  $('#viewKoalas').on('click', '.transfer', handleTransferClick)
 }); // end doc ready
+
+function handleTransferClick(){
+  readyToTransfer($(this).data('id'), 'N');
+}
+
+function readyToTransfer(koalaId, yesOrNo){
+  $.ajax({
+    method: "PUT",
+    url: `/koalas/${koalaId}`,
+    data: {
+      ready_to_transfer: `${yesOrNo}`
+    }
+  })
+  .then(response => {
+    console.log('Ready for transfer');
+    getKoalas();
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}
 
 function setupClickListeners() {
   $( '#addButton' ).on( 'click', function(){
@@ -49,6 +71,7 @@ function renderKoalas(koalas) {
     console.log('in render koalas', koala);
 
     //for each koala, append a new row to table
+    if (koala.ready_to_transfer === 'N'){
     $('#viewKoalas').append(`
     <tr>
       <td>${koala.name}</td>
@@ -59,7 +82,18 @@ function renderKoalas(koalas) {
       <td><button class="transfer" data-id="${koala.id}">Ready for Transfer</button></td>
       <td><button class="deleteBtn" data-id="${koala.id}">Delete</button></td>
     </tr>
+    `)}else{
+      $('#viewKoalas').append(`
+      <tr>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.gender}</td>
+        <td>${koala.ready_to_transfer}</td>
+        <td>${koala.notes}</td>
+        <td><button class="deleteBtn" data-id="${koala.id}">Delete</button></td>
+      </tr>
     `)
+    }
   }
 }//end renderDOM
 
