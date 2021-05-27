@@ -59,6 +59,8 @@ koalaRouter.put('/:id', (req, res) => {
     
     if (transferReady === 'N'){//SQL statement to update transfer status of Koalas
         queryString = `UPDATE "koalas" SET "ready_to_transfer" = 'Y' WHERE "koalas".id = $1;`;
+    } else if (transferReady === 'Y') {
+        queryString = `UPDATE "koalas" SET "ready_to_transfer" = 'N' WHERE "koalas".id = $1;`;
     } else {
         res.sendStatus(500);
         return;
@@ -72,7 +74,7 @@ koalaRouter.put('/:id', (req, res) => {
             console.log(err);
             res.sendStatus(500);//if it doesn't work get 500
         });
-})
+});
 
 // DELETE
 koalaRouter.delete('/:id', (req, res) => {

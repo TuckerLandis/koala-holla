@@ -10,8 +10,17 @@ $( document ).ready( function(){
   $('#viewKoalas').on('click', '.transfer', handleTransferClick)
 }); // end doc ready
 
+
 function handleTransferClick(){
-  readyToTransfer($(this).data('id'), 'N');
+  let transferReady = '';
+
+  if ($(this).data('ready_to_transfer') === 'Y') {
+    transferReady = 'Y'
+
+  } else if ($(this).data('ready_to_transfer') === 'N') {
+    transferReady = 'N'
+  }  
+  readyToTransfer($(this).data('id'), transferReady);
 }
 
 function readyToTransfer(koalaId, yesOrNo){
@@ -98,9 +107,9 @@ function renderKoalas(koalas) {
       <td>${koala.ready_to_transfer}</td>
       <td>${koala.notes}</td>
       <td><button class="deleteBtn btn btn-danger" data-id="${koala.id}">Delete</button></td>
-      <td><button class="transfer btn btn-info" data-id="${koala.id}">Ready for Transfer</button></td>
+      <td><button class="transfer btn btn-info" data-ready="${koala.ready_to_transfer}">Ready for Transfer</button></td>
     </tr>
-    `)}else{
+    `)}else if (koala.ready_to_transfer === 'Y') {
       $('#viewKoalas').append(`
       <tr>
         <td>${koala.name}</td>
@@ -109,6 +118,7 @@ function renderKoalas(koalas) {
         <td>${koala.ready_to_transfer}</td>
         <td>${koala.notes}</td>
         <td><button class="deleteBtn btn btn-danger" data-id="${koala.id}">Delete</button></td>
+        <td><button class="transfer btn btn-info" data-ready="${koala.ready_to_transfer}">Not Ready for Transfer</button></td>
       </tr>
     `)
     }
