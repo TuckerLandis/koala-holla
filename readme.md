@@ -13,4 +13,4 @@ We used a node, express, and postgres stack to acheive this. Upon downloading th
 
 Due to our concern for the Koalas, we implemented an alert system on an attempt to delete a Koala from the database, due to this, it is also important to run ' swalert install ' to enable functionality of sweetalert, their documentation can be found here: https://sweetalert.js.org/guides/
 
-Please see the 'koala_holla.sql' file for instructions on setting up the database you will need to make this database functional and integrate it properly to the application.
+Please see the 'koala_holla.sql' file for instructions on setting up the database you will need to make and integrate it properly to the application.
