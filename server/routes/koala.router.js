@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
 
@@ -24,7 +25,28 @@ pool.on('error', (error) => {
 
 
 // PUT
-
+koalaRouter.put('/:id', (req, res) => {
+    let koalaId = req.params.id;
+    let transferReady = req.body.ready_to_transfer
+    console.log(transferReady);
+    let queryString = '';
+    
+    if (transferReady === 'N'){
+        queryString = `UPDATE "koalas" SET "ready_to_transfer" = 'Y' WHERE "koalas".id = $1;`;
+    } else {
+        res.sendStatus(500);
+        return;
+    }
+    pool.query(queryString, [koalaId])
+        .then(response => {
+            console.log(response.rowCount);
+            res.sendStatus(202);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+})
 
 // DELETE
 
