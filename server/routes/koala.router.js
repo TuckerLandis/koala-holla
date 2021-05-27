@@ -22,6 +22,24 @@ pool.on('error', (error) => {
 
 // POST
 
+koalaRouter.post('/', (req, res) => {
+    console.log(req.body);
+
+  let queryText = `INSERT INTO "koalas" 
+	("name", "gender", "age", "ready_to_transfer", "notes") 
+    VALUES 
+        ($1, $2, $3, $4, $5)`
+ 
+ pool.query(queryText, [req.body.name, req.body.gender, req.body.age, req.body.readyForTransfer, req.body.notes] )
+ .then ((result) => {
+     res.sendStatus(201);
+     
+ }).catch(err => {
+     console.log(err);
+     
+     res.sendStatus(500);
+ })
+ });
 
 // PUT
 
