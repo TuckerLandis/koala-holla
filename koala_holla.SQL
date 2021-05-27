@@ -1,3 +1,14 @@
+-- The name of the database our application references is 'koala_holla', and as such, the database you initialize will need to be named the same
+
+-- The create table statement need to be exceuted in order to initialize the database
+
+-- We've included some sample Koalas for reference, and a test select statement to ensure your table is functional
+
+
+
+
+
+
 CREATE TABLE "koalas" (
 		"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR (250) NOT NULL,
