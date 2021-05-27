@@ -72,11 +72,13 @@ function saveKoala( newKoala ){
     url: '/koalas',
     data: newKoala,
 }).then( function (response) {
-  $('#nameIn').val(''),
-  $('#ageIn').val(''),
-  $('#genderIn').val(''),
-  $('#readyForTransferIn').val(''),
-  $('#notesIn').val('')
+  $('#nameIn').val('');
+  $('#ageIn').val('');
+  $('#genderIn').val('');
+  $('#readyForTransferIn').val('');
+  $('#notesIn').val('');
+  getKoalas();
+
 });
 
 
