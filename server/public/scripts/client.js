@@ -97,8 +97,8 @@ function renderKoalas(koalas) {
       <td>${koala.gender}</td>
       <td>${koala.ready_to_transfer}</td>
       <td>${koala.notes}</td>
-      <td><button class="transfer" data-id="${koala.id}">Ready for Transfer</button></td>
-      <td><button class="deleteBtn" data-id="${koala.id}">Delete</button></td>
+      <td><button class="deleteBtn btn btn-danger" data-id="${koala.id}">Delete</button></td>
+      <td><button class="transfer btn btn-info" data-id="${koala.id}">Ready for Transfer</button></td>
     </tr>
     `)}else{
       $('#viewKoalas').append(`
@@ -108,7 +108,7 @@ function renderKoalas(koalas) {
         <td>${koala.gender}</td>
         <td>${koala.ready_to_transfer}</td>
         <td>${koala.notes}</td>
-        <td><button class="deleteBtn" data-id="${koala.id}">Delete</button></td>
+        <td><button class="deleteBtn btn btn-danger" data-id="${koala.id}">Delete</button></td>
       </tr>
     `)
     }

@@ -1,0 +1,49 @@
+td {
+    padding: 10px;
+    
+}
+
+h1{
+    text-decoration: underline;
+}
+
+.hr-class {
+    border-top: 10px solid #8c8b8b;
+   
+}
+
+.koalaTable {
+    width: 100%;
+}
+
+th {
+    
+    font-size: large;
+}
+
+.koalacon {
+    width: 10%;
+    padding: 1em;
+    display: inline;
+}
+
+.hdr{
+    display: flexbox;
+    padding: 1em;
+    background-color: lightgrey;
+}
+
+.hdr-text-div{
+    display: flexbox;
+}
+
+.hdr-text {
+    display: flex;
+}
+#addKoala{
+    margin: 1em;
+}
+
+.tablebox{
+    margin: 2em;
+}
