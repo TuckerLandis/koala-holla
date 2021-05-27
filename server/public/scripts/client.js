@@ -41,21 +41,23 @@ function getKoalas(){
     });  
 } // end getKoalas
 
-function renderDOM(koalas) {
+function renderKoalas(koalas) {
   $('#viewKoalas').empty();
 
   for(let i = 0; i < koalas.length; i++) {
     let koala = koalas[i];
+    console.log('in render koalas', koala);
+
     //for each koala, append a new row to table
     $('#viewKoalas').append(`
     <tr>
       <td>${koala.name}</td>
       <td>${koala.age}</td>
       <td>${koala.gender}</td>
-      <td>${koala.readyForTransfer}</td>
+      <td>${koala.ready_to_transfer}</td>
       <td>${koala.notes}</td>
-      <td><button class="transfer" data-id="${koala[i].id}">Ready for Transfer</button></td>
-      <td><button class="deleteBtn" data-id="${koala[i].id}">Delete</button></td>
+      <td><button class="transfer" data-id="${koala.id}">Ready for Transfer</button></td>
+      <td><button class="deleteBtn" data-id="${koala.id}">Delete</button></td>
     </tr>
     `)
   }
