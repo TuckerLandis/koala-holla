@@ -36,9 +36,13 @@ function setupClickListeners() {
 
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
-    // get user input and put in an object
-    // NOT WORKING YET :(
-    // using a test object
+    // input validation -- could make required field background to red via jquery toggle class
+    if ($('#nameIn').val() == '' || $('#ageIn').val() == '' || 
+    $('#genderIn').val() == '' || $('#readyForTransferIn').val() == '' ) {
+      alert('Please fill in all required information');
+      return;
+    }
+
     let koalaToSend = {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
