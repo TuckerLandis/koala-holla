@@ -5,15 +5,22 @@
     <title>Koalla Holla</title>
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="views/styles.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="vendors/bootstrap.css">
+    <link rel="stylesheet" href="vendors/bootstrap.css.map">
   </head>
   <body>
-    <header>
-      <img src="images/icon.png" class="icon" />
-      <h1>Koala Holla</h1>
-      <h3>1976 Llama Comma Drive</h2>
-      <h3>Walla Walla, WA</h2>
+    <header class="hdr">
+      <img src="images/icon.png" class="icon koalacon flex" />
+      <div class="hdr-text-div">
+        <h1>Koala Holla</h1>
+        <h3>1976 Llama Comma Drive</h2>
+          
+        <h3>Walla Walla, WA</h2>
+      </div>
+
     </header>
+    <hr class="hr-class">
     <section id="addKoala">
       <h2>Add Koala</h2>
       <input type="text" id="nameIn" value="" placeholder="Name">
@@ -23,9 +30,11 @@
       <input type="text" id="notesIn" value="" placeholder="Notes">
       <button type="button" id="addButton">Add Koala</button>
     </section>
-    <section>
+    <hr class="hr-class">
+
+    <section class="tablebox">
       <h2>All Koalas</h2>
-      <table>
+      <table class="text-center koala-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -33,6 +42,8 @@
             <th>Gender</th>
             <th>Ready for Transfer</th>
             <th>Notes</th>
+            <th>   </th>
+            <th>   </th>
           </tr>
         </thead>
         <tbody id="viewKoalas">
