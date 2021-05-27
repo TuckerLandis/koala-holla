@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
-
 // DB CONNECTION
 const pg = require('pg');
 //pg configuration
@@ -19,7 +18,15 @@ pool.on('error', (error) => {
 });
 
 // GET
-
+koalaRouter.get('/', (req, res) => {
+    let queryText = 'SELECT * FROM "koalas" ORDER BY "name";';
+    pool.query(queryText).then(result => {
+        res.send(result.rows);
+    }).catch(error => {
+        console.log('error getting koalas in router.get', error);
+        res.sendStatus(500);
+    });
+});//end router.get
 
 // POST
 
