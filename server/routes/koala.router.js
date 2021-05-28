@@ -2,6 +2,7 @@ const { Router } = require('express');
 const express = require('express');
 const koalaRouter = express.Router();
 // DB CONNECTION
+const pool = require('../modules/pool')
 const pg = require('pg');
 //pg configuration
 const Pool = pg.Pool;
