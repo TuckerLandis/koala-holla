@@ -52,17 +52,20 @@ koalaRouter.post('/', (req, res) => {
 // PUT
 koalaRouter.put('/:id', (req, res) => {
     let koalaId = req.params.id;//setting Koala id dynamically
+    console.log('koalaId in koalaRouter', koalaId);
+    
     let transferReady = req.body.ready_to_transfer//sets variable to transferability of koala
     console.log(req.body);
     console.log(transferReady);
     let queryString = '';
     
     if (transferReady === 'N'){//SQL statement to update transfer status of Koalas
-        queryString = `UPDATE "koalas" SET "ready_to_transfer" = 'Y' WHERE "koalas".id = $1;`;
+        queryString = `UPDATE "koalas" SET "ready_to_transfer"='Y' WHERE "koalas".id=$1;`;
     } else {
-        res.sendStatus(500);
-        return;
+        queryString = `UPDATE "koalas" SET "ready_to_transfer"='N' WHERE "koalas".id=$1;`;
+        
     }
+        
     pool.query(queryString, [koalaId])
         .then(response => {
             console.log(response.rowCount);
@@ -72,7 +75,7 @@ koalaRouter.put('/:id', (req, res) => {
             console.log(err);
             res.sendStatus(500);//if it doesn't work get 500
         });
-})
+});
 
 // DELETE
 koalaRouter.delete('/:id', (req, res) => {
