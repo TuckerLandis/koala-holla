@@ -1,3 +1,7 @@
+header {
+    background-image: url("https://images.pexels.com/photos/794512/pexels-photo-794512.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
 td {
     padding: 10px;
     
@@ -5,6 +9,7 @@ td {
 
 h1{
     text-decoration: underline;
+    
 }
 
 .hr-class {
@@ -59,4 +64,10 @@ th {
 h3 {
     text-align: center;
     text-decoration: underline;
+
+}
+
+.titleHeader {
+    background-color: rgba(99, 95, 95, 0.8);    
+    color: lightgray;
 }
