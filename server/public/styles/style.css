@@ -22,23 +22,25 @@ th {
 }
 
 .koalacon {
-    width: 10%;
-    padding: 1em;
+    width: 30%;
+    padding: 0.5em;
     display: inline;
 }
 
 .hdr{
-    display: flexbox;
+    display: flex;
     padding: 1em;
     background-color: lightgrey;
 }
 
 .hdr-text-div{
     display: flexbox;
+    margin-top: 5em;
 }
 
 .hdr-text {
     display: flex;
+    margin-top: 1em;
 }
 #addKoala{
     margin: 1em;
@@ -46,4 +48,15 @@ th {
 
 .tablebox{
     margin: 2em;
+}
+
+.th-c {
+    font-size: larger;
+    padding: 2em;
+    text-decoration: underline;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
 }
