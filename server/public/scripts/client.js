@@ -10,18 +10,16 @@ $( document ).ready( function(){
   $('#viewKoalas').on('click', '.transfer', handleTransferClick)
 }); // end doc ready
 
-
 function handleTransferClick(){
 
   if ($(this).data('ready_to_transfer') === 'Y') {
 
     readyToTransfer($(this).data('id'), 'Y');
-
-    
+    swal("Transfer status: not ready for transfer.");
   } else {
     
     readyToTransfer($(this).data('id'), 'N');
-
+    swal("Transfer status: ready for transfer.");
   }  
 
 }
@@ -53,7 +51,7 @@ function setupClickListeners() {
     // input validation -- could make required field background to red via jquery toggle class
     if ($('#nameIn').val() == '' || $('#ageIn').val() == '' || 
     $('#genderIn').val() == '' || $('#readyForTransferIn').val() == '' ) {
-      alert('Please fill in all required information');
+      swal("Please fill in all required information");
       return;
     }
 
@@ -80,6 +78,7 @@ function deleteKoala(koalaId) {
   }).then(response => {
     console.log(`deleted koala with id of ${koalaId}`);
     getKoalas();
+    swal("Your koala friend says, \"Bye-bye\"!");
   }).catch(err => {
     alert('there was a problem deleting that koala, try again', err);
   });
